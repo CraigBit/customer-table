@@ -1,0 +1,44 @@
+@use "sass:map";
+@import "functions";
+
+:host {
+  padding: 10px;
+
+  .control {
+    &__container {
+      width: 40px;
+      height: 40px;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      cursor: pointer;
+      background-color: transparent;
+
+      &:hover {
+        background-color: $icon-hover;
+      }
+
+      &:active {
+        background-color: $icon-active;
+      }
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+
+      path {
+        fill: #304879;
+      }
+
+      &--disabled {
+        path {
+          fill: $icon-disabled;
+        }
+        pointer-events: none;
+      }
+    }
+  }
+}
