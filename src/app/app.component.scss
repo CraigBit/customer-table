@@ -1,0 +1,142 @@
+@import "variables";
+@import "functions";
+
+:host {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  gap: 30px;
+  height: 100%;
+}
+
+.customers {
+  &__title {
+    font-weight: 500;
+    font-size: rem(28);
+    color: $table-title;
+  }
+
+  &__body {
+    overflow: hidden;
+  }
+
+  &__panel {
+    border-radius: 20px;
+    background-color: $content-background;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+  }
+
+  &__wrapper {
+    overflow: auto;
+    border-radius: 0 0 20px 20px;
+    padding-bottom: 10px;
+  }
+
+  &__table {
+    $checkbox-row-width: 40px;
+
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+
+    &-checkbox {
+      width: $checkbox-row-width;
+    }
+
+    &-data {
+      width: calc((100% - #{$checkbox-row-width}) / 4);
+    }
+
+    thead {
+      position: sticky;
+      top: 0;
+      background-color: $content-background;
+    }
+
+    th {
+      font-weight: 500;
+      font-size: rem(12);
+      color: $table-header;
+    }
+
+    td {
+      font-size: rem(14);
+      color: $main-text-color;
+      max-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    th,
+    td {
+      &:nth-child(1) {
+        text-align: end;
+      }
+
+      &:nth-child(n + 2) {
+        text-align: start;
+        padding: 0 8px;
+      }
+    }
+
+    thead,
+    tr {
+      height: 45px;
+    }
+
+    tr {
+      border-bottom: 1px solid $field-default;
+    }
+
+    tr:last-child {
+      border: 0;
+    }
+  }
+
+  &__header-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  &__name {
+    cursor: pointer;
+
+    &:hover {
+      color: $field-focused;
+      text-decoration: underline;
+    }
+  }
+}
+
+.custom-checkbox {
+  display: inline-block;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+.custom-checkbox label {
+  cursor: pointer;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.custom-checkbox input:not(:checked):not(:indeterminate) + label {
+  background-color: $content-background;
+  border: 2px solid $field-default;
+}
+
+.custom-checkbox input:checked + label {
+  background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%234A95F7' viewBox='0 0 18 18'><path fill-rule='evenodd' clip-rule='evenodd' d='M16 0H2C0.9 0 0 0.9 0 2V16C0 17.1 0.9 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0ZM7 14L2 9L3.4 7.6L7 11.2L14.6 3.6L16 5L7 14Z' /></svg>");
+}
+
+.custom-checkbox input:indeterminate + label {
+  background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%234A95F7' viewBox='0 0 18 18'><path fill-rule='evenodd' clip-rule='evenodd' d='M2 0H16C17.1 0 18 0.89 18 2V16C18 16.5304 17.7893 17.0391 17.4142 17.4142C17.0391 17.7893 16.5304 18 16 18H2C1.46957 18 0.960859 17.7893 0.585786 17.4142C0.210714 17.0391 0 16.5304 0 16V2C0 0.89 0.89 0 2 0ZM15 8H3V10H15V8Z' /></svg>");
+}
