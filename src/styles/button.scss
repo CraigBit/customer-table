@@ -1,0 +1,40 @@
+@import "variables";
+@import "functions";
+
+.button {
+  border-radius: 35px;
+  padding: 15px 20px;
+  height: 50px;
+  font-size: rem(18);
+  cursor: pointer;
+
+  &--cancel {
+    background: transparent;
+    color: $button-default;
+
+    &:hover {
+      background: rgba(60, 124, 248, 0.1);
+    }
+
+    &:active {
+      background: rgba(25, 78, 182, 0.2);
+    }
+  }
+
+  &--submit {
+    background: $button-default;
+    color: $content-background;
+
+    &:hover {
+      background: #3c7cf8;
+    }
+
+    &:active {
+      background: #194eb6;
+    }
+
+    &:disabled {
+      background: #d8dee9;
+    }
+  }
+}
