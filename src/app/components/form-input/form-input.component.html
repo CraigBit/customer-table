@@ -1,0 +1,10 @@
+<div
+  class="container"
+  [highlight]="config.name"
+  [formGroup]="group"
+  [directive]="formDirective"
+>
+  <input [type]="config.type" [formControlName]="config.name" />
+  <span class="label">{{ config.label }}</span>
+  <span class="error">{{ config.message }}</span>
+</div>
