@@ -24,8 +24,6 @@ export class TableSearchComponent {
    */
   public setSearch(): void {
     const trimmedValue = this.state.trim();
-    console.log(this.state);
-
     this.searchEvent.emit(trimmedValue.length ? trimmedValue : null);
   }
 }

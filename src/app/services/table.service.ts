@@ -66,8 +66,6 @@ export class TableService {
     });
 
     this.currentSearch.subscribe(({ key, value }) => {
-      console.log(key, value);
-
       value === null
         ? delete this.filterObject?.[key]
         : (this.filterObject = { ...this.filterObject, [key]: value });
@@ -180,9 +178,6 @@ export class TableService {
    * Отфильтровать таблицу
    */
   private filterTable(table: IdCustomer[]): IdCustomer[] {
-    console.log(table);
-    console.log(this.filterObject);
-
     return table.filter((customer) => {
       const filterKeys = getKeys(this.filterObject ?? {});
 
