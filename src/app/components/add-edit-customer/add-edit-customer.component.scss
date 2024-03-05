@@ -1,0 +1,31 @@
+@import "variables";
+@import "functions";
+
+:host {
+  border-radius: 20px;
+  width: 450px;
+  height: 600px;
+  padding: 45px 40px;
+  display: block;
+  background-color: $content-background;
+
+  .customer {
+    &__title {
+      font-weight: 500;
+      font-size: rem(24);
+      margin-bottom: 40px;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<h2 class="customer__title">Новый клиент</h2>
+<form
+  [formGroup]="form"
+  #ngForm="ngForm"
+  class="customer__form"
+  (ngSubmit)="onSubmit()"
+>
+  <app-form-input
+    [group]="form"
+    [formDirective]="ngForm"
+    [config]="field"
+    *ngFor="let field of config"
+  ></app-form-input>
+  <div class="customer__footer">
+    <button class="button button--cancel" type="button" (click)="ref.close()">
+      Отмена
+    </button>
+    <button class="button button--submit" type="submit">Сохранить</button>
+  </div>
+</form>
